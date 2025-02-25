@@ -8,13 +8,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class IsItFriday{
     static String isItFriday(String today){
-        return "Nope";
+        return today.equals("Friday") ? "Of course!":"Nope";
     }
 }
 
 public class StepDefinitions {
     private String today;
     private String actualAnswer;
+
+    @Given("today is Friday")
+    public void todayIsFriday() {
+        today = "Friday";
+    }
 
     @Given("today is Sunday")
     public void todayIsSunday() {
